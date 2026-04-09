@@ -17,6 +17,7 @@
 
       <!-- Country Card -->
        <?php foreach($countries as $country): 
+       
           $flag = htmlspecialchars($country['flags']['png']);
           $countryName =  htmlspecialchars($country['name']['common']) ;
           $population =  htmlspecialchars($country['population']); 
