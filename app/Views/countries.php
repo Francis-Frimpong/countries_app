@@ -16,15 +16,22 @@
     <div class="row g-4">
 
       <!-- Country Card -->
-       <?php foreach($countries as $country): ?>
+       <?php foreach($countries as $country): 
+          $flag = htmlspecialchars($country['flags']['png']);
+          $countryName =  htmlspecialchars($country['name']['common']) ;
+          $population =  htmlspecialchars($country['population']); 
+          $region =  htmlspecialchars( $country['region']);
+          $capital = htmlspecialchars( $country['capital'][0] ?? 'N/A')
+        
+        ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card">
-            <img src="<?= htmlspecialchars($country['flags']['png']) ?>" alt="Flag of <?= htmlspecialchars($country['name']['common']) ?>">
+            <img src="<?= $flag ?>" alt="Flag of <?= $countryName ?>">
             <div class="card-body">
-              <div class="card-title"><?= htmlspecialchars($country['name']['common']) ?></div>
-              <p class="card-text"><span>Population:</span> <?= htmlspecialchars($country['population']) ?></p>
-              <p class="card-text"><span>Region:</span> <?= htmlspecialchars( $country['region']) ?></p>
-              <p class="card-text"><span>Capital:</span> <?= htmlspecialchars( $country['capital'][0] ?? 'N/A') ?></p>
+              <div class="card-title"><?= $countryName ?></div>
+              <p class="card-text"><span>Population:</span> <?= $population ?></p>
+              <p class="card-text"><span>Region:</span> <?= $region?></p>
+              <p class="card-text"><span>Capital:</span> <?= $capital?></p>
             </div>
           </div>
         </div>
