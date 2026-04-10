@@ -26,15 +26,18 @@
         
         ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <img src="<?= $flag ?>" alt="Flag of <?= $countryName ?>">
-            <div class="card-body">
-              <div class="card-title"><?= $countryName ?></div>
-              <p class="card-text"><span>Population:</span> <?= $population ?></p>
-              <p class="card-text"><span>Region:</span> <?= $region?></p>
-              <p class="card-text"><span>Capital:</span> <?= $capital?></p>
+          <a class="text-decoration-none" href="/countries_app/country_detail?code=<?= $country['cca3'] ?>">
+
+            <div class="card">
+              <img src="<?= $flag ?>" alt="Flag of <?= $countryName ?>">
+              <div class="card-body">
+                <div class="card-title"><?= $countryName ?></div>
+                <p class="card-text"><span>Population:</span> <?= $population ?></p>
+                <p class="card-text"><span>Region:</span> <?= $region?></p>
+                <p class="card-text"><span>Capital:</span> <?= $capital?></p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       <?php endforeach ?>
 

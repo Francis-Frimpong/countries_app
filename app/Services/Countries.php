@@ -7,7 +7,7 @@ class Countries
 {
     static public function getCountries($limit = null)
     {
-        $data = ApiService::get( "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags");
+        $data = ApiService::get( "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3");
 
 
     if ($limit) {
