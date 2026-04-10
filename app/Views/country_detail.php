@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="mt-4">
-      <button class="btn-back">← Back</button>
+      <button  class="btn-back"><a class="text-decoration-none text-white" href="/countries_app/countries"> ← Back</a></button>
     </div>
 
     <div class="details-container">
