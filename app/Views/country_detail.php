@@ -48,6 +48,6 @@
 
 </div>
 
-  <?php require_once __DIR__ .'/../Views/partials/footer.php';?>
+<?php require_once __DIR__ .'/../Views/partials/footer.php';?>
 
 
