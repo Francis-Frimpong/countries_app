@@ -11,6 +11,7 @@ class CountryDetailsController
     public function countryDetailPage()
     {
         // $countries = Countries::getCountries(10);
+        $pageTitle = 'Country Detail';
         require __DIR__ . '/../Views/country_detail.php';
 
     }
