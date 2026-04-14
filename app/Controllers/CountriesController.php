@@ -10,7 +10,14 @@ class CountriesController
 {
     public function countriesPage()
     {
-        $countries = Countries::getCountries(10);
+        
+        $countries = Countries::getCountries();
+        
+        $search = $_GET['search'] ?? '';
+        $region = $_GET['region'] ?? '';
+
+        $filteredCountries = Countries::filterCountries($countries, $search, $region);
+        
         $pageTitle = 'Countries';
         require __DIR__ . '/../Views/countries.php';
 

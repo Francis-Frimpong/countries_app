@@ -16,5 +16,19 @@ class Countries
 
     return $data;
     }
+
+   public static function filterCountries($countries, $search = null, $region = null)
+    {
+      return array_values(array_filter($countries, function ($country) use ($search, $region)  {
+            
+            $name = strtolower($country['name']['common']);
+            $countryRegion = $country['region'];
+
+            $matchesSearch = empty($search) || str_contains($name, strtolower($search));
+            $matchesRegion = empty($region) || strtolower($countryRegion === $region);
+
+            return $matchesSearch && $matchesRegion;
+        }));
+    }
 }
         

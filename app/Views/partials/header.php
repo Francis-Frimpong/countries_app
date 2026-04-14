@@ -118,6 +118,13 @@
       font-size: 12px;
     }
 
+    .search-filter {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
     @media(min-width: 768px) {
       .details-container {
         display: flex;
@@ -141,6 +148,22 @@
         width: 200px;
       }
     }
+
+    @media (min-width: 768px) {
+    .search-filter {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .search-box-wrapper {
+      width: 60%;
+    }
+
+    .filter-box-wrapper {
+      width: 30%;
+    }
+}
   </style>
 </head>
 <body>
