@@ -1,6 +1,13 @@
 <?php require_once __DIR__ .'/../Views/partials/header.php';?>
 
-<?php $region = $region ?? ''; ?>
+<?php $region = $region ?? ''; 
+
+$page = $page ?? 1;
+$totalPages = $totalPages ?? 1;
+$search = $search ?? '';
+$region = $region ?? '';
+?>
+
 
     <form method="GET" class="search-filter">
 
@@ -51,7 +58,7 @@
         <p class="text-center mt-4">No countries found.</p>
       <?php endif; ?>
       <!-- Country Card -->
-       <?php foreach($filteredCountries as $country): 
+       <?php foreach($pagedCountries as $country): 
        
           $flag = htmlspecialchars($country['flags']['png']);
           $countryName =  htmlspecialchars($country['name']['common']) ;
@@ -60,9 +67,11 @@
           $capital = htmlspecialchars( $country['capital'][0] ?? 'N/A')
         
         ?>
+        <!-- Card Grid -->
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <a class="text-decoration-none" href="/countries_app/country_detail?code=<?= $country['cca3'] ?>">
 
+          <!-- Cards -->
             <div class="card">
               <img src="<?= $flag ?>" alt="Flag of <?= $countryName ?>">
               <div class="card-body">
@@ -74,7 +83,30 @@
             </div>
           </a>
         </div>
-      <?php endforeach ?>
+        <?php endforeach ?>
+
+        <!-- Pagination -->
+        <div class="pagination mt-4 d-flex justify-content-center gap-2">
+          <?php if ($page > 1): ?>
+          <a class="btn btn-dark" href="?page=<?= $page - 1 ?>&search=<?= $search ?>&region=<?= $region ?>">
+            Prev
+          </a>
+          <?php endif; ?>
+          <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+          <a 
+            class="btn <?= $i == $page ? 'btn-success' : 'btn-dark' ?>" 
+            href="?page=<?= $i ?>&search=<?= $search ?>&region=<?= $region ?>"
+          >
+            <?= $i ?>
+          </a>
+          
+        <?php endfor; ?>
+        <?php if ($page < $totalPages): ?>
+        <a class="btn btn-dark" href="?page=<?= $page + 1 ?>&search=<?= $search ?>&region=<?= $region ?>">
+          Next
+        </a>
+      <?php endif; ?>
+        </div>
 
 
 <?php require_once __DIR__ .'/../views/partials/footer.php';?>

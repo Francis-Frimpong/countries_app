@@ -9,12 +9,7 @@ class Countries
     {
         $data = ApiService::get( "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3");
 
-
-    if ($limit) {
-        return array_slice($data, 0, $limit);
-    }
-
-    return $data;
+        return $data;
     }
 
    public static function filterCountries($countries, $search = null, $region = null)
@@ -25,7 +20,7 @@ class Countries
             $countryRegion = $country['region'];
 
             $matchesSearch = empty($search) || str_contains($name, strtolower($search));
-            $matchesRegion = empty($region) || strtolower($countryRegion === $region);
+           $matchesRegion = empty($region) || strtolower($countryRegion) === strtolower($region);
 
             return $matchesSearch && $matchesRegion;
         }));
